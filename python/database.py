@@ -1,7 +1,13 @@
 import pymongo
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv, find_dotenv
 
-client = MongoClient("mongodb+srv://Scarletbobcat:Gnaoh_2002@nail-art.boejdrj.mongodb.net/")
+load_dotenv(find_dotenv())
+
+password = os.environ.get("MONGO_PWD")
+
+client = MongoClient(f"mongodb+srv://Scarletbobcat:{password}@nail-art.boejdrj.mongodb.net/")
 db = client['Nail-Art']
 employees = db['Employee']
 
