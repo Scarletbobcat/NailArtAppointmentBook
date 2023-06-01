@@ -55,6 +55,7 @@ while True:
             end_time = input("End time: ")
             phone_number = input("Phone number: ")
             service = input("Service: ")
+            nail_technician = input("Nail Tech: ")
             #if appointment exists
             if appointments.find_one({"date": date, "name": name, "start_time": start_time}):
                 #print appointment already exists
