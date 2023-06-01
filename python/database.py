@@ -9,8 +9,10 @@ load_dotenv(find_dotenv())
 #assigns password from .env file
 password = os.environ.get("MONGO_PWD")
 
+connection_string = f"mongodb+srv://Scarletbobcat:{password}@nail-art.boejdrj.mongodb.net/"
+
 #connecting to database and collections
-client = MongoClient(f"mongodb+srv://Scarletbobcat:{password}@nail-art.boejdrj.mongodb.net/")
+client = MongoClient(connection_string)
 db = client['Nail-Art']
 employees = db.Employee
 appointments = db.Appointments
