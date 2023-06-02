@@ -29,6 +29,7 @@ current_employees =[
 {"_id": 7, "name": "Taylor"}]
 
 #to insert all current employees
+# employees.insert_many(current_employees)
 # for x in current_employees:
 #     if (employees.find_one(x)):
 #         print(x.name + " is already an employee!\n")
@@ -40,7 +41,7 @@ current_employees =[
 
 #menu function that prints menu
 def menu():
-    print("1. Create appointment\n2. Delete appointment\n3. Add nail tech\n4. Remove nail tech\n5. Exit\n")
+    print("\n\n1. Create appointment\n2. Delete appointment\n3. Add nail tech\n4. Remove nail tech\n5. Exit\n")
 
 while True:
     menu()
@@ -63,8 +64,7 @@ while True:
             #else
             else:
                 #add appointment to database
-                post = {"date": date, "name": name, "start_time": start_time, "end_time": end_time, "phone_number": phone_number, "service": service}
-                appointments.insert_one(post)
+                appointments.insert_one({"date": date, "name": name, "start_time": start_time, "end_time": end_time, "phone_number": phone_number, "service": service})
 
         case "2":
             #ask date, name, time
