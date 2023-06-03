@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import os
 from dotenv import load_dotenv, find_dotenv
 
-#finds .env file
+#finds and loads .env file
 load_dotenv(find_dotenv())
 
 #assigns password from .env file
