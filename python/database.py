@@ -8,8 +8,9 @@ load_dotenv(find_dotenv())
 
 #assigns password from .env file
 password = os.environ.get("MONGO_PWD")
+username = os.environ.get("MONGO_USRNM")
 
-connection_string = f"mongodb+srv://Scarletbobcat:{password}@nail-art.boejdrj.mongodb.net/"
+connection_string = f"mongodb+srv://{username}:{password}@nail-art.boejdrj.mongodb.net/"
 
 #connecting to database and collections
 client = MongoClient(connection_string)
