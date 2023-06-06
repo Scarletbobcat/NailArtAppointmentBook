@@ -6,9 +6,9 @@ from dotenv import load_dotenv, find_dotenv
 #finds and loads .env file
 load_dotenv(find_dotenv())
 
-#assigns password from .env file
-password = os.environ.get("MONGO_PWD")
+#assigns username and password from .env file
 username = os.environ.get("MONGO_USRNM")
+password = os.environ.get("MONGO_PWD")
 
 connection_string = f"mongodb+srv://{username}:{password}@nail-art.boejdrj.mongodb.net/"
 
