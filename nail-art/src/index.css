@@ -6,6 +6,19 @@
   color: #333;
 }
 
+.gallery-title {
+  position: relative;
+  text-align: center;
+}
+
+.gallery {
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: nowrap;
+}
+
 .navbar {
   display: flex;
   padding: 20px;

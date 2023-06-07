@@ -1,7 +1,10 @@
-import pymongo
 from pymongo import MongoClient
 import os
+from typing import Union
+from fastapi import FastApi
 from dotenv import load_dotenv, find_dotenv
+
+app = FastApi()
 
 #finds and loads .env file
 load_dotenv(find_dotenv())
