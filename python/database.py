@@ -18,27 +18,7 @@ db = client['Nail-Art']
 employees = db.Employee
 appointments = db.Appointments
 
-#docs are all employees
-current_employees =[
-{"_id": 0, "name": "Sami"},
-{"_id": 1, "name": "Brian"},
-{"_id": 2, "name": "Ken"},
-{"_id": 3, "name": "Ty"},
-{"_id": 4, "name": "Rachel"},
-{"_id": 5, "name": "Rae"},
-{"_id": 6, "name": "Tien"},
-{"_id": 7, "name": "Taylor"}]
-
-#to insert all current employees
-# employees.insert_many(current_employees)
-# for x in current_employees:
-#     if (employees.find_one(x)):
-#         print(x.name + " is already an employee!\n")
-#     else:
-#         employees.insert_one(x)
-
-#finding documents with specific id
-# results1 = employees.find({"_id": 0})
+next_id = employees.find().count()
 
 #menu function that prints menu
 def menu():
@@ -90,15 +70,16 @@ while True:
             #else if nail tech does not exist
             else:
                 #add nail tech to database
-                employees.insert_one({"name": nail_tech})
+                employees.insert_one({"_id": next_id, "name": nail_tech})
+                next_id += 1
 
         case "4":
             #ask who to remove
             nail_tech = input("First name of nail tech: ")
             #if name exists
-            if employees.find_one({"name": nail_tech}):
+            if employees.find_one({"_id": next_id - 1, "name": nail_tech}):
                 #remove nail tech
-                employees.delete_one({"name": nail_tech})
+                employees.delete_one({"_id": next_id - 1, "name": nail_tech})
             #else print DNE
             else:
                 print("Nail tech does not exist")
